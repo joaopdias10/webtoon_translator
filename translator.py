@@ -4,13 +4,15 @@ import pytesseract
 import re
 from deep_translator import GoogleTranslator
 import textwrap
+#from PIL import Image, ImageDraw, ImageFont
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-model = YOLO("scr_manga/weights/best.pt") #pega o modelo treinado
-image = cv2.imread("scr_manga/inputs/img2.jpg") #carrega a imagem
+model = YOLO("train/runs/detect/train8/weights/best.pt") #pega o meu modelo treinado
+#model = YOLO("scr_manga/weights/best.pt") #pega o modelo que achei na internet
+image = cv2.imread("scr_manga/inputs/img.jpeg") #carrega a imagem
 results = model(image) #passa a imagem pro modelo e recebe o resultado
-#cv2.imwrite("scr_manga/outputs/resultado.jpg", results[0].plot()) #coloca a imagem resultante na pasta outputs
+#cv2.imwrite("scr_manga/outputs/1.jpeg", results[0].plot()) #coloca a imagem resultante na pasta outputs
 
 balloon = len(results[0].boxes) #numero de baloes de fala
 

@@ -1,4 +1,5 @@
-ultralytics==8.3.150
+ultralytics==8.3.158
 opencv-python==4.11.0.86
 pytesseract==0.3.13
 deep-translator==1.11.4
+pillow==11.1.0
