@@ -8,9 +8,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-model = YOLO("train/runs/detect/train8/weights/best.pt") #pega o meu modelo treinado
-#model = YOLO("scr_manga/weights/best.pt") #pega o modelo que achei na internet
-image = cv2.imread("scr_manga/inputs/img2.jpg") #carrega a imagem
+model = YOLO("train/runs/detect/train/weights/best.pt") #pega o meu modelo treinado
+#model = YOLO("scr_manga/weights_AymanKUMA/best.pt") #pega o modelo que achei na internet
+image = cv2.imread("scr_manga/inputs/2.jpeg") #carrega a imagem
 results = model(image) #passa a imagem pro modelo e recebe o resultado
 cv2.imwrite("scr_manga/outputs/resultado.jpg", results[0].plot()) #coloca a imagem resultante na pasta outputs
 
@@ -30,9 +30,9 @@ for i,box in enumerate(results[0].boxes):
     text = re.sub(r'\s+', ' ', text).strip() #remove quebra de linha
     text = GoogleTranslator(source='en', target='pt').translate(text) #traduz balão
     text = text.capitalize() #formata o texto
-    
-    # Quando estava usando o OpenCV
     #print(f"Balão {i+1}: {text}")
+
+    # Quando estava usando o OpenCV
     #cv2.imwrite(f"scr_manga/outputs/recorte_{i}.jpg", cropped) #salva o balão
     #cv2.rectangle(image, (x1, y1), (x2, y2), (255, 255, 255), thickness=-1) #passa um "branco" no balão
 
@@ -45,5 +45,5 @@ for i,box in enumerate(results[0].boxes):
         draw.text((x1 + 5, y1 + 5), linha, font=fonte, fill=(0, 0, 0))
         y1 += 25
 
-image_pil.save("scr_manga/outputs/resultado.jpg") #salva a imagem com as alterações
+image_pil.save("scr_manga/outputs/2.jpeg") #salva a imagem com as alterações
 
