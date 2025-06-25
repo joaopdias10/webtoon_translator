@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-model = YOLO("train/runs/detect/train/weights/best.pt") #pega o meu modelo treinado
+model = YOLO("train/runs/train1/weights/best.pt") #pega o meu modelo treinado
 #model = YOLO("scr_manga/weights_AymanKUMA/best.pt") #pega o modelo que achei na internet
 image = cv2.imread("scr_manga/inputs/2.jpeg") #carrega a imagem
 results = model(image) #passa a imagem pro modelo e recebe o resultado
