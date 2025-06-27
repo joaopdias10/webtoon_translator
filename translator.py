@@ -32,10 +32,6 @@ for i,box in enumerate(results[0].boxes):
     text = text.capitalize() #formata o texto
     #print(f"Balão {i+1}: {text}")
 
-    # Quando estava usando o OpenCV
-    #cv2.imwrite(f"scr_manga/outputs/recorte_{i}.jpg", cropped) #salva o balão
-    #cv2.rectangle(image, (x1, y1), (x2, y2), (255, 255, 255), thickness=-1) #passa um "branco" no balão
-
     draw.rectangle([x1, y1, x2, y2], fill=(255, 255, 255)) #passa o "branco"
 
     caract = max(((x2 - x1) // 10), 1) #maximo num de caracteres, 10 pixels por caracter
